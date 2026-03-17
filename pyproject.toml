@@ -1,0 +1,15 @@
+[project]
+name = "ml-car-price-prediction"
+version = "0.1.0"
+description = "Prediction of car prices using manual ML models and PyCaret, with SHAP/LIME interpretability"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "ipykernel>=6.29",
+    "jupyterlab>=4.3",
+    "pandas>=2.2",
+    "numpy>=1.26",
+    "matplotlib>=3.9",
+    "seaborn>=0.13",
+    "scikit-learn>=1.5",
+]
