@@ -2,11 +2,35 @@
 
 Prediction of car prices using manual ML models and PyCaret, with SHAP/LIME interpretability.
 
+## Tools & Skills Used
+
+![Matplotlib](https://img.shields.io/badge/Matplotlib-11557c?style=flat&logo=matplotlib&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat&logo=numpy&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat&logo=pandas&logoColor=white)
+![PyCaret](https://img.shields.io/badge/PyCaret-1B9E77?style=flat&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=flat&logo=scikit-learn&logoColor=white)
+![Seaborn](https://img.shields.io/badge/Seaborn-3776AB?style=flat&logoColor=white)
+![uv](https://img.shields.io/badge/uv-DE5FE9?style=flat&logo=uv&logoColor=white)
+
 ## Quick Access
 
 - [Notebooks](notebooks/)
 - [Data](data/)
 - [Visualizations](visualizations/)
+
+## Project Overview
+
+This project builds an end-to-end machine learning regression pipeline to predict car prices from vehicle specifications. Three models are trained and evaluated manually (Linear Regression, Random Forest, Gradient Boosting), then compared against PyCaret's automated model selection to assess the value of hands-on feature engineering versus automated ML workflows. SHAP and LIME interpretability analysis is planned as a next step.
+
+Part of the Masterschool AI Enhanced Productivity project series, which explores how automation tools can enhance analytical productivity across different ML problem types.
+
+## Objectives
+
+- Build a complete ML pipeline: data gathering, cleaning, EDA, feature engineering, preprocessing, training, and evaluation
+- Train and compare multiple regression models on a real-world car pricing dataset
+- Compare manual model performance against PyCaret's automated approach
+- Evaluate the trade-offs between hands-on ML workflows and automation tools
 
 ## Pipeline
 
@@ -22,35 +46,43 @@ Prediction of car prices using manual ML models and PyCaret, with SHAP/LIME inte
 
 ## Results
 
+### Manual Models
+
 | Model | MAE | RMSE | R2 |
 |-------|-----|------|-----|
 | Linear Regression | $2,197 | $3,335 | 0.859 |
 | Random Forest | $1,533 | $2,195 | 0.939 |
 | Gradient Boosting | $1,676 | $2,466 | 0.923 |
 
-Best model: **Random Forest** (R2 = 0.939, MAE = $1,533)
+### PyCaret Comparison
 
-## Setup
+| Model | MAE | RMSE | R2 |
+|-------|-----|------|-----|
+| LightGBM (PyCaret best) | $2,177 | $3,558 | 0.840 |
+
+Best model: **Random Forest** (R2 = 0.939, MAE = $1,533) — the manual pipeline outperformed PyCaret's automated selection, demonstrating the value of domain-specific feature engineering.
+
+## Setup & Installation
 
 ### Prerequisites
 
 - Python 3.11+
-- [uv](https://docs.astral.sh/uv/)
+- [uv](https://docs.astral.sh/uv/getting-started/installation/) package manager
 
-### Clone
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/krauseannelize/ml-car-price-prediction.git
 cd ml-car-price-prediction
 ```
 
-### Install
+### 2. Install Dependencies
 
 ```bash
 uv sync
 ```
 
-### Run
+### 3. Run the Project
 
 Open notebooks interactively:
 
