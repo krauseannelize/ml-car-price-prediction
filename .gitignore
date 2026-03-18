@@ -17,3 +17,5 @@ data/*
 !data/car-price-assignment.csv
 models/
 visualizations/
+pycaret_output.txt
+logs.log
