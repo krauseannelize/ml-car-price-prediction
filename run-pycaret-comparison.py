@@ -9,7 +9,7 @@
 """
 PyCaret model comparison for car price prediction.
 
-Run with: uv run run_pycaret_comparison.py
+Run with: uv run run-pycaret-comparison.py
 
 Uses the featured dataset (before manual encoding/scaling) because
 PyCaret handles its own preprocessing internally. Giving it already-
@@ -58,8 +58,8 @@ results.to_csv("data/pycaret-results.csv", index=False)
 print("\nFull results saved to data/pycaret-results.csv")
 
 # Save best model
-save_model(best_model, "models/pycaret_best")
-print(f"Best model saved to models/pycaret_best.pkl")
+save_model(best_model, "models/pycaret-best")
+print(f"Best model saved to models/pycaret-best.pkl")
 
 # --- Predict on test set ---
 print("\n" + "=" * 55)

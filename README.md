@@ -61,13 +61,13 @@ uv run jupyter lab
 Run the full pipeline:
 
 ```bash
-uv run python run_pipeline.py
+uv run python run-pipeline.py
 ```
 
 Run the PyCaret comparison (output saved to file):
 
 ```bash
-uv run run_pycaret_comparison.py > pycaret_output.txt 2>&1
+uv run run-pycaret-comparison.py > pycaret-output.txt 2>&1
 ```
 
 > **Note:** No `python` prefix needed — the script contains inline metadata
