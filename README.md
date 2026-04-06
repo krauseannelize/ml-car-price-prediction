@@ -1,6 +1,6 @@
 # ML Car Price Prediction
 
-Prediction of car prices using manual ML models and PyCaret, with SHAP/LIME interpretability.
+Does a manual ML workflow outperform an automated one? This project answers that question by predicting car prices three ways and comparing the results.
 
 ## Tools & Skills Used
 
@@ -13,26 +13,21 @@ Prediction of car prices using manual ML models and PyCaret, with SHAP/LIME inte
 ![Seaborn](https://img.shields.io/badge/Seaborn-3776AB?style=flat&logoColor=white)
 ![uv](https://img.shields.io/badge/uv-DE5FE9?style=flat&logo=uv&logoColor=white)
 
-## Quick Access
-
-- [Notebooks](notebooks/)
-- [Data](data/)
-- [Visualizations](visualizations/)
-
 ## Project Overview
 
-This project builds an end-to-end machine learning regression pipeline to predict car prices from vehicle specifications. Three models are trained and evaluated manually (Linear Regression, Random Forest, Gradient Boosting), then compared against PyCaret's automated model selection to assess the value of hands-on feature engineering versus automated ML workflows. SHAP and LIME interpretability analysis is planned as a next step.
+This project builds an end-to-end machine learning regression pipeline to predict car prices from vehicle specifications. The same dataset is processed through three distinct phases to isolate the impact of manual feature engineering versus automated model selection.
 
 Part of the Masterschool AI Enhanced Productivity project series, which explores how automation tools can enhance analytical productivity across different ML problem types.
 
-## Objectives
+## Phases
 
-- Build a complete ML pipeline: data gathering, cleaning, EDA, feature engineering, preprocessing, training, and evaluation
-- Train and compare multiple regression models on a real-world car pricing dataset
-- Compare manual model performance against PyCaret's automated approach
-- Evaluate the trade-offs between hands-on ML workflows and automation tools
+| Phase | Approach | Description |
+|-------|----------|-------------|
+| 1 | Manual | User handles preprocessing and trains 3 models (LR, RF, GB) across 7 notebooks |
+| 2 | Automated | PyCaret handles preprocessing and trains 18 models on the raw featured dataset |
+| 3 | Hybrid | User handles preprocessing, PyCaret trains 18 models on the cleaned data |
 
-## Pipeline
+## Phase 1 Pipeline
 
 | Notebook | Description |
 |----------|-------------|
@@ -46,21 +41,19 @@ Part of the Masterschool AI Enhanced Productivity project series, which explores
 
 ## Results
 
-### Manual Models
+| Phase | Approach | Best Model | MAE | RMSE | R2 |
+|-------|----------|-----------|-----|------|-----|
+| 1 | Manual | Random Forest | $1,533 | $2,195 | 0.939 |
+| 2 | Automated | LightGBM | $2,177 | $3,558 | 0.840 |
+| **3** | **Hybrid** | **Extra Trees** | **$1,447** | **$2,079** | **0.945** |
 
-| Model | MAE | RMSE | R2 |
-|-------|-----|------|-----|
-| Linear Regression | $2,197 | $3,335 | 0.859 |
-| Random Forest | $1,533 | $2,195 | 0.939 |
-| Gradient Boosting | $1,676 | $2,466 | 0.923 |
+### Conclusion
 
-### PyCaret Comparison
+The hybrid approach (Phase 3) produced the best results across all metrics. Manual preprocessing gave PyCaret better inputs to work with, and PyCaret's broader model search found Extra Trees Regressor, a model not tested in the manual phase.
 
-| Model | MAE | RMSE | R2 |
-|-------|-----|------|-----|
-| LightGBM (PyCaret best) | $2,177 | $3,558 | 0.840 |
+PyCaret on raw data (Phase 2) performed worst, confirming that automated ML benefits significantly from thoughtful data preparation. The fully manual pipeline (Phase 1) landed in the middle with strong preprocessing but only three models to choose from.
 
-Best model: **Random Forest** (R2 = 0.939, MAE = $1,533) — the manual pipeline outperformed PyCaret's automated selection, demonstrating the value of domain-specific feature engineering.
+The takeaway: automation and domain expertise are most powerful in combination.
 
 ## Setup & Installation
 
@@ -90,19 +83,25 @@ Open notebooks interactively:
 uv run jupyter lab
 ```
 
-Run the full pipeline:
+Run the Phase 1 manual pipeline:
 
 ```bash
 uv run python run-pipeline.py
 ```
 
-Run the PyCaret comparison — raw data (output saved to file):
+Run PyCaret Phase 2 - raw data:
 
 ```bash
-uv run pycaret/run-pycaret-raw.py > pycaret/pycaret-raw-output.txt 2>&1
+uv run pycaret/run-pycaret-raw.py
 ```
 
-> **Note:** No `python` prefix needed — the scripts contain inline metadata
-> ([PEP 723](https://peps.python.org/pep-0723/)) that specifies their own
-> dependencies and Python version. `uv` reads this directly from the script
-> and creates an isolated environment automatically.
+Run PyCaret Phase 3 - preprocessed data:
+
+```bash
+uv run pycaret/run-pycaret-preprocessed.py
+```
+
+> **Note:** PyCaret scripts use inline metadata ([PEP 723](https://peps.python.org/pep-0723/))
+> to specify their own dependencies and Python version. No `python` prefix needed -
+> `uv` reads this directly from the script and creates an isolated environment
+> automatically. Output logs are saved in [`pycaret/`](pycaret/).
