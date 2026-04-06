@@ -19,5 +19,4 @@ models/
 visualizations/
 pycaret/*.csv
 pycaret/*.pkl
-pycaret/*-output.txt
 logs.log

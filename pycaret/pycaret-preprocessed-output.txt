@@ -1,0 +1,98 @@
+Train: (164, 36), Test: (41, 36)
+
+=======================================================
+PYCARET SETUP (PREPROCESSED DATA)
+=======================================================
+
+=======================================================
+COMPARING MODELS
+=======================================================
+Processing:   0%|          | 0/77 [00:00<?, ?it/s]Processing:   6%|▋         | 5/77 [00:02<00:39,  1.81it/s]Processing:  14%|█▍        | 11/77 [00:02<00:14,  4.64it/s]Processing:  25%|██▍       | 19/77 [00:02<00:06,  9.55it/s]Processing:  35%|███▌      | 27/77 [00:03<00:03, 15.25it/s]Processing:  45%|████▌     | 35/77 [00:03<00:01, 21.59it/s]Processing:  55%|█████▍    | 42/77 [00:03<00:01, 27.16it/s]Processing:  62%|██████▏   | 48/77 [00:03<00:00, 32.10it/s]Processing:  70%|███████   | 54/77 [00:03<00:00, 28.44it/s]Processing:  77%|███████▋  | 59/77 [00:03<00:00, 26.64it/s]Processing:  82%|████████▏ | 63/77 [00:04<00:00, 27.99it/s]Processing:  87%|████████▋ | 67/77 [00:04<00:00, 28.28it/s]Processing:  92%|█████████▏| 71/77 [00:04<00:00, 17.10it/s]Processing: 100%|██████████| 77/77 [00:04<00:00, 22.14it/s]                                                                                               Model           MAE           MSE  \
+et                  Extra Trees Regressor  1.471895e+03  4.819615e+06   
+gbr           Gradient Boosting Regressor  1.520934e+03  5.663718e+06   
+rf                Random Forest Regressor  1.522872e+03  6.037571e+06   
+ada                    AdaBoost Regressor  1.785481e+03  5.970364e+06   
+lightgbm  Light Gradient Boosting Machine  1.736790e+03  7.221163e+06   
+ridge                    Ridge Regression  1.963217e+03  7.783630e+06   
+br                         Bayesian Ridge  1.966111e+03  7.836661e+06   
+lr                      Linear Regression  1.960018e+03  8.121245e+06   
+lasso                    Lasso Regression  1.930264e+03  8.081244e+06   
+llar         Lasso Least Angle Regression  1.983150e+03  8.589016e+06   
+huber                     Huber Regressor  1.989716e+03  8.910008e+06   
+dt                Decision Tree Regressor  2.038575e+03  1.046293e+07   
+en                            Elastic Net  2.176924e+03  1.050697e+07   
+par          Passive Aggressive Regressor  2.274883e+03  1.136586e+07   
+omp           Orthogonal Matching Pursuit  2.324975e+03  1.177371e+07   
+knn                 K Neighbors Regressor  2.226753e+03  1.281606e+07   
+dummy                     Dummy Regressor  5.819877e+03  6.076210e+07   
+lar                Least Angle Regression  9.474326e+08  1.436183e+20   
+
+                  RMSE            R2   RMSLE        MAPE  TT (Sec)  
+et        2.133869e+03  9.052000e-01  0.1411      0.1096     0.015  
+gbr       2.291198e+03  8.890000e-01  0.1384      0.1089     0.010  
+rf        2.310428e+03  8.814000e-01  0.1495      0.1129     0.020  
+ada       2.341929e+03  8.776000e-01  0.1801      0.1537     0.008  
+lightgbm  2.537462e+03  8.619000e-01  0.1635      0.1268     0.046  
+ridge     2.685388e+03  8.371000e-01  0.1859      0.1514     0.001  
+br        2.701087e+03  8.361000e-01  0.1859      0.1516     0.003  
+lr        2.771374e+03  8.328000e-01  0.2011      0.1529     0.276  
+lasso     2.742858e+03  8.328000e-01  0.1939      0.1495     0.003  
+llar      2.838450e+03  8.247000e-01  0.1986      0.1540     0.003  
+huber     2.850572e+03  8.133000e-01  0.1874      0.1482     0.004  
+dt        3.149072e+03  8.047000e-01  0.1999      0.1520     0.003  
+en        3.110959e+03  8.027000e-01  0.1865      0.1574     0.001  
+par       3.218327e+03  7.938000e-01  0.2101      0.1632     0.004  
+omp       3.246660e+03  7.870000e-01  0.2218      0.1778     0.003  
+knn       3.406754e+03  7.585000e-01  0.2065      0.1505     0.003  
+dummy     7.616408e+03 -9.030000e-02  0.5181      0.5101     0.001  
+lar       3.789711e+09 -2.100501e+12  1.0995  60558.3315     0.002  
+                                    Model           MAE           MSE          RMSE            R2   RMSLE        MAPE  TT (Sec)
+et                  Extra Trees Regressor  1.471895e+03  4.819615e+06  2.133869e+03  9.052000e-01  0.1411      0.1096     0.015
+gbr           Gradient Boosting Regressor  1.520934e+03  5.663718e+06  2.291198e+03  8.890000e-01  0.1384      0.1089     0.010
+rf                Random Forest Regressor  1.522872e+03  6.037571e+06  2.310428e+03  8.814000e-01  0.1495      0.1129     0.020
+ada                    AdaBoost Regressor  1.785481e+03  5.970364e+06  2.341929e+03  8.776000e-01  0.1801      0.1537     0.008
+lightgbm  Light Gradient Boosting Machine  1.736790e+03  7.221163e+06  2.537462e+03  8.619000e-01  0.1635      0.1268     0.046
+ridge                    Ridge Regression  1.963217e+03  7.783630e+06  2.685388e+03  8.371000e-01  0.1859      0.1514     0.001
+br                         Bayesian Ridge  1.966111e+03  7.836661e+06  2.701087e+03  8.361000e-01  0.1859      0.1516     0.003
+lr                      Linear Regression  1.960018e+03  8.121245e+06  2.771374e+03  8.328000e-01  0.2011      0.1529     0.276
+lasso                    Lasso Regression  1.930264e+03  8.081244e+06  2.742858e+03  8.328000e-01  0.1939      0.1495     0.003
+llar         Lasso Least Angle Regression  1.983150e+03  8.589016e+06  2.838450e+03  8.247000e-01  0.1986      0.1540     0.003
+huber                     Huber Regressor  1.989716e+03  8.910008e+06  2.850572e+03  8.133000e-01  0.1874      0.1482     0.004
+dt                Decision Tree Regressor  2.038575e+03  1.046293e+07  3.149072e+03  8.047000e-01  0.1999      0.1520     0.003
+en                            Elastic Net  2.176924e+03  1.050697e+07  3.110959e+03  8.027000e-01  0.1865      0.1574     0.001
+par          Passive Aggressive Regressor  2.274883e+03  1.136586e+07  3.218327e+03  7.938000e-01  0.2101      0.1632     0.004
+omp           Orthogonal Matching Pursuit  2.324975e+03  1.177371e+07  3.246660e+03  7.870000e-01  0.2218      0.1778     0.003
+knn                 K Neighbors Regressor  2.226753e+03  1.281606e+07  3.406754e+03  7.585000e-01  0.2065      0.1505     0.003
+dummy                     Dummy Regressor  5.819877e+03  6.076210e+07  7.616408e+03 -9.030000e-02  0.5181      0.5101     0.001
+lar                Least Angle Regression  9.474326e+08  1.436183e+20  3.789711e+09 -2.100501e+12  1.0995  60558.3315     0.002
+
+Full results saved to pycaret/pycaret-preprocessed-results.csv
+Transformation Pipeline and Model Successfully Saved
+Best model saved to pycaret/pycaret-preprocessed-best.pkl
+
+=======================================================
+TEST SET EVALUATION
+=======================================================
+                   Model        MAE           MSE  ...      R2   RMSLE    MAPE
+0  Extra Trees Regressor  1447.2881  4.321514e+06  ...  0.9453  0.1219  0.1013
+
+[1 rows x 7 columns]
+
+Best PyCaret model: ExtraTreesRegressor
+  MAE:  $1,447
+  RMSE: $2,079
+  R2:   0.945
+
+=======================================================
+ALL PHASES COMPARISON
+=======================================================
+
+Model                                      MAE       RMSE       R2
+-----------------------------------------------------------------
+Phase 1: Linear Regression          $   2,197 $   3,335    0.859
+Phase 1: Random Forest              $   1,533 $   2,195    0.939
+Phase 1: Gradient Boosting          $   1,676 $   2,466    0.923
+Phase 2: LightGBM (raw)             $   2,177 $   3,558    0.840
+-----------------------------------------------------------------
+Phase 3: ExtraTreesRegressor (preprocessed) $   1,447 $   2,079    0.945
+=================================================================
