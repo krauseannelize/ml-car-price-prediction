@@ -96,13 +96,13 @@ Run the full pipeline:
 uv run python run-pipeline.py
 ```
 
-Run the PyCaret comparison (output saved to file):
+Run the PyCaret comparison — raw data (output saved to file):
 
 ```bash
-uv run run-pycaret-comparison.py > pycaret-output.txt 2>&1
+uv run pycaret/run-pycaret-raw.py > pycaret/pycaret-raw-output.txt 2>&1
 ```
 
-> **Note:** No `python` prefix needed — the script contains inline metadata
-> ([PEP 723](https://peps.python.org/pep-0723/)) that specifies its own
+> **Note:** No `python` prefix needed — the scripts contain inline metadata
+> ([PEP 723](https://peps.python.org/pep-0723/)) that specifies their own
 > dependencies and Python version. `uv` reads this directly from the script
 > and creates an isolated environment automatically.

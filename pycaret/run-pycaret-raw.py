@@ -7,9 +7,9 @@
 # ]
 # ///
 """
-PyCaret model comparison for car price prediction.
+Phase 2: PyCaret on raw featured data (no user preprocessing).
 
-Run with: uv run run-pycaret-comparison.py
+Run with: uv run pycaret/run-pycaret-raw.py
 
 Uses the featured dataset (before manual encoding/scaling) because
 PyCaret handles its own preprocessing internally. Giving it already-
@@ -53,13 +53,13 @@ results = pull()
 print(results.to_string())
 
 # Save full results to CSV
-os.makedirs("models", exist_ok=True)
-results.to_csv("data/pycaret-results.csv", index=False)
-print("\nFull results saved to data/pycaret-results.csv")
+os.makedirs("pycaret", exist_ok=True)
+results.to_csv("pycaret/pycaret-raw-results.csv", index=False)
+print("\nFull results saved to pycaret/pycaret-raw-results.csv")
 
 # Save best model
-save_model(best_model, "models/pycaret-best")
-print(f"Best model saved to models/pycaret-best.pkl")
+save_model(best_model, "pycaret/pycaret-raw-best")
+print(f"Best model saved to pycaret/pycaret-raw-best.pkl")
 
 # --- Predict on test set ---
 print("\n" + "=" * 55)
