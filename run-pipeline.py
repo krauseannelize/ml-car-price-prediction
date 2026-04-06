@@ -16,7 +16,7 @@ NOTEBOOKS = [
 for nb in NOTEBOOKS:
     print(f"\nRunning {nb}...")
     result = subprocess.run(
-        ["jupyter", "execute", nb, "--inplace"],
+        [sys.executable, "-m", "jupyter", "execute", nb, "--inplace"],
         capture_output=True, text=True,
     )
     if result.returncode != 0:
