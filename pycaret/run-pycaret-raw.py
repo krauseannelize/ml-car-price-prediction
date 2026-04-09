@@ -52,23 +52,45 @@ best_model = compare_models(n_select=1)
 results = pull()
 print(results.to_string())
 
-# Save full results to CSV
+# Save CV results to CSV
 os.makedirs("pycaret", exist_ok=True)
 results.to_csv("pycaret/pycaret-raw-results.csv", index=False)
-print("\nFull results saved to pycaret/pycaret-raw-results.csv")
+print("\nCV results saved to pycaret/pycaret-raw-results.csv")
 
 # Save best model
 save_model(best_model, "pycaret/pycaret-raw-best")
 print(f"Best model saved to pycaret/pycaret-raw-best.pkl")
 
-# --- Predict on test set ---
+# --- Evaluate ALL models on test set ---
 print("\n" + "=" * 55)
-print("TEST SET EVALUATION")
+print("TEST SET EVALUATION (ALL MODELS)")
 print("=" * 55)
 
+from pycaret.regression import create_model
+
+test_results = []
+for idx, row in results.iterrows():
+    model_id = idx
+    model_name = row["Model"]
+    try:
+        model = create_model(model_id, verbose=False)
+        preds = predict_model(model, data=test_df)
+        pred_col = "prediction_label" if "prediction_label" in preds.columns else "Label"
+        m_mae = mean_absolute_error(test_df["price"], preds[pred_col])
+        m_r2 = r2_score(test_df["price"], preds[pred_col])
+        m_rmse = np.sqrt(((test_df["price"] - preds[pred_col]) ** 2).mean())
+        test_results.append({"Model": model_name, "MAE": round(m_mae), "RMSE": round(m_rmse), "R2": round(m_r2, 4)})
+        print(f"  {model_name:<40} MAE: ${m_mae:>8,.0f}  RMSE: ${m_rmse:>8,.0f}  R2: {m_r2:.4f}")
+    except Exception as e:
+        print(f"  {model_name:<40} SKIPPED ({e})")
+
+test_results_df = pd.DataFrame(test_results).sort_values("MAE")
+test_results_df.to_csv("pycaret/pycaret-raw-test-results.csv", index=False)
+print(f"\nTest set results saved to pycaret/pycaret-raw-test-results.csv")
+
+# Best model test metrics
 preds = predict_model(best_model, data=test_df)
 pred_col = "prediction_label" if "prediction_label" in preds.columns else "Label"
-
 mae = mean_absolute_error(test_df["price"], preds[pred_col])
 r2 = r2_score(test_df["price"], preds[pred_col])
 rmse = np.sqrt(((test_df["price"] - preds[pred_col]) ** 2).mean())
