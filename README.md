@@ -23,6 +23,7 @@ Does a manual ML workflow outperform an automated one? This project answers that
 - [Notebooks](notebooks/) | Manual pipeline (01-07), white-box interpretation (08), black-box explainability (09)
 - [PyCaret scripts](pycaret/) | Phase 2 and 3 automation scripts, logs, and results
 - [Results](#phase-4--comparison) | Three-phase metric comparison
+- [Presentation slides (PDF)](presentation-car-price-prediction.pdf) | Project summary deck
 - [Presentation video](https://youtu.be/pPSpYYsdPdM) | YouTube walkthrough
 - [Setup & Installation](#setup--installation) | Clone, install, and run
 
